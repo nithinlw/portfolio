@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex,nofollow">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Nithin Weerasinghe</title>
+		<link rel="icon" type="image/x-icon" href="img/favi3.png">
+		<script src="https://kit.fontawesome.com/514c8a5f10.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<header>		
+			<h1><a href="index.html" class="center nav__link" style="color: black;text-decoration: none;">Nithin Weerasinghe</a></h1>
+			<nav class="nav center">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="index.html#about" class="nav__link">about</a></li>
+					<li class="nav__item"><a href="index.html#experience" class="nav__link">experience</a></li>
+					<li class="nav__item"><a href="index.html#projects" class="nav__link">projects</a></li>
+					<li class="nav__item"><a href="index.html#creative" class="nav__link">creative</a></li>
+					<li class="nav__item"><a href="index.html#blog" class="nav__link">blog</a></li>
+					<li class="nav__item"><a href="index.html#contact" class="nav__link">contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<br>
+		<div class="center">
+		<h1>Parsons Problem Research</h1>
+		</div>
+		<h2>Background</h2>
+		<p>Parsons problems are a type of programming exercise where students rearrange jumbled code blocks of a solution program back into its original form. They can be done complementary or as an alternative to standard write-code problems. There are also different variations, such as parsons problems which include extraneous code blocks to serve as "distractors". Parsons problems are more engaging to students and require less cognitive load to students and may be as effective to learning as their write-code counterparts.</p>
+		<h2>Analyzing Data</h2>
+		<p>I was tasked with analyzing student submissions of parsons problems and their counterpart write-code. Some students did the parsons first and then the write-code and some did it the other way around. I created a program that compared the times a user did each to filter them into two groups, allowing us to compare the behavior and performance of students between the groups. I was able to track which distractors people chose. I also hand classified common mistakes and approaches people did in a write-code question and the frquency. This particular problem was one that people struggle on the parson problem version of. After looking into the data, we were able to hypothesize the poor performance stemmed from the fact that the parsons solution used an approach that was not used had they attempted the problem as a write-code.</p>
+		<h2>Recommender System</h2>
+		<p>With the help of another student we planned on creating a recommender system that would first cluster student approaches to write-code problems, create a parsons problems from correct solutions, then be able to recommend one of those parsons problems to a struggling student based on the approach they are attempting. To support this, I created a program using Jupyter notebook to create copies of write code solutions as individual py files from the log file and sorts them in folder based on incorrect/correct solution. The program tests if each student code passes test cases. It can be easily modified to exclude code that did not compile, choose to save only last incorrect solution or all incorrect solutionsfor each student. The data was also cleaned and used as input for our clustering algorithm which consisted of stoting code as ASTs (Abstract Syntax Trees). As part of the clustering pipeline, I also created a program that given a source file with student code separated by “#”, appended comments to id code (based on order in original file) and generated text file with 20 random orderings of code to ensure our clusterings were reproduceable. To ensure our clusterings produced similar results, I created a program that calulated the <a href="https://en.wikipedia.org/wiki/Rand_index">rand index and adjusted rand index</a> among all pairs of clusterings and the total average.
+		</p>
+		<h2>Think-aloud Study</h2>
+		<p>We conducted think-aloud surveys over zoom to see students responses to parsons problems created using our clustering algorithm. Additional distractors were added manually, inspired by common mistakes we found among the dataset. Students were to complete write-code tasks and have the option to do the corresponding parsons problem to help them. I helped play a role in developing questions for the think-aloud survey. After discussing preliminary findings, we found that students felt that the parsons probelm had a real beneficial effect on their learning. These results were incredibly encouraging and made me feel that the project was worth the effort.</p>
+		<h2>My Takeaways</h2>
+		<p>I learned a lot from my time on the project. It opened my eyes to independent research. I was intimitaded by the lack of direction at first, having the open-ended task of making sense of data. However I was forced to put that uneasiness to the side and was able to make real progress and find real insights from the data. I gained lots of experience in what goes into research: the weekly check-ins, the collaboration among members, the IRB process, how to recruit participants and perform think alouds. I gained confidence in my ability to creatively come up with solutions to tasks and code on my own. Lastly, the project helped me understand more about what I want to do with my career. I've gained a great appreciation for research and human-computer interaction that I had not had before. Seeing the potential of developing human-centered interfaces, be it in education or something else, and how rewarding it was to build has made me certain that this a field I would like to pursue further.</p>
+	</body>
+</html>
