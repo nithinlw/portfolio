@@ -11,12 +11,27 @@ header {
 
 body {
   margin: 0 auto;
-  max-width: 40em;
+  max-width: 44em;
 
   line-height: 1.5;
   padding: 5em 1em;
   background-color: #fafafa;
   color: #444444;
+}
+
+.LI_style{
+}
+
+.LI_style img{
+  float: left;
+    width: 5em;
+    height: 5em;
+    padding-right: 1em;
+
+}
+
+.LI_style .text{
+  margin-left: 5em;
 }
 
 
