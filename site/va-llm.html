@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinical notes to research data | Nithin Weerasinghe</title>
+<meta name="description" content="Project brief: turning 1.25M+ free-text VA clinical records into research variables clinicians can trust, with open-weight language models and error analysis.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<script>(function(){var r=document.documentElement,t=null;r.classList.add('js');try{t=localStorage.getItem('theme');}catch(e){}if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}r.setAttribute('data-theme',t);try{if(sessionStorage.getItem('pt'))r.classList.add('pt-cover');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="research">
+<a class="skip" href="#main">Skip to content</a>
+<header id="nav"></header>
+
+<main id="main">
+  <header class="case-head sky" id="top">
+    <div class="wrap">
+      <p class="label">Research project 01</p>
+      <h1 class="h1" data-split>Clinical notes to <em>research data</em></h1>
+      <p class="lede">Turning free-text clinical records into research variables that researchers can analyze and clinicians can trust.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Data Science Research Fellow: pipelines, model deployment, evaluation</dd></div>
+        <div><dt>Setting</dt><dd>U.S. Department of Veterans Affairs, January 2025 to present</dd></div>
+        <div><dt>Methods</dt><dd>Python, SQL, fine-tuned transformers, open-weight LLMs (vLLM, 4-bit AWQ)</dd></div>
+        <div><dt>Outputs</dt><dd>Manuscript in preparation, two SLEEP 2026 abstracts, IEEE AIxSET 2025 paper</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap case">
+    <ol class="toc" data-rail>
+      <li><a href="#q1"><span>01</span>Objective</a></li><li><a href="#q2"><span>02</span>Current practice</a></li><li><a href="#q3"><span>03</span>Approach</a></li><li><a href="#q4"><span>04</span>Impact</a></li>
+      <li><a href="#q5"><span>05</span>Risks</a></li><li><a href="#q6"><span>06</span>Resources</a></li><li><a href="#q7"><span>07</span>Timeline</a></li><li><a href="#q8"><span>08</span>Evaluation</a></li>
+    </ol>
+    <article>
+      <section class="q" id="q1" data-sec>
+        <span class="q__n">01 Objective</span><h2 class="h2">What are we trying to do?</h2>
+        <p class="answer">Extract the measurements clinicians write in their notes, reliably enough that researchers can build cohorts and run analyses on them, across more than a million records.</p>
+        <p>Many values that matter for sleep medicine research, such as the results of multiple sleep latency tests, live in narrative notes rather than structured fields. If they can be extracted faithfully, studies that would otherwise depend on manual chart review become possible at the scale of the whole record.</p>
+      </section>
+
+      <section class="q" id="q2" data-sec>
+        <span class="q__n">02 Current practice</span><h2 class="h2">How is it done today, and what are the limits?</h2>
+        <ul>
+          <li><b>Manual chart review</b> is accurate, but slow and costly. It does not scale to 1.25M+ records.</li>
+          <li><b>Keyword and rule-based search</b> is fast, but brittle against the many ways clinicians phrase the same finding.</li>
+          <li><b>Structured fields</b> are easy to query, but often missing the values researchers need.</li>
+          <li><b>General-purpose language models</b> are flexible, but can invent values, and clinical text cannot be sent to outside services.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q3" data-sec>
+        <span class="q__n">03 Approach</span><h2 class="h2">What is new, and why should it work?</h2>
+        <p class="answer">Treat extraction as measurement: define each variable with clinicians, filter before extracting, run models where the data lives, and evaluate errors by type rather than by a single accuracy number.</p>
+        <ul>
+          <li><b>Clinician-defined variables.</b> Research variables are agreed with clinicians and interdisciplinary researchers before any model runs, with evaluation protocols for reliability and validity.</li>
+          <li><b>An upstream filter.</b> A fine-tuned transformer classifier screens notes before extraction, which reduced downstream hallucination. On 5,486 annotated notes, it identified notes reporting multiple sleep latency test results with an F1 score of 0.900, against 0.895 for a bag-of-words baseline, and was preferred for its robustness to varied clinical language (<a class="text" href="https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=58" target="_blank" rel="noopener">SLEEP 2026 abstract</a>).</li>
+          <li><b>Open-weight models on internal hardware.</b> Models of two sizes are served with vLLM, 4-bit quantization and pipeline parallelism across an 8-GPU cluster, so large models fit fixed hardware and records never leave VA systems.</li>
+          <li><b>Error analysis by type.</b> Evaluation tooling separates hallucination, omission and mismatch errors against 5,486 labeled examples, and model sizes are benchmarked on accuracy and cost.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q4" data-sec>
+        <span class="q__n">04 Impact</span><h2 class="h2">Who cares, and what difference does it make?</h2>
+        <p class="answer">Researchers get the variables they need at the scale of the whole record, without months of chart review.</p>
+        <ul>
+          <li><b>Clinician-researchers</b> studying narcolepsy, hypersomnia and other sleep disorders in veterans can define and study cohorts that were previously impractical to assemble.</li>
+          <li><b>VA leadership</b> gets model choices grounded in measured accuracy and cost, rather than in model size alone.</li>
+          <li><b>Program evaluation</b> benefits from the same data infrastructure: a SQL database over the enterprise data warehouse, R dashboards for the Office of Rural Health telehealth evaluation, and Streamlit dashboards for stakeholders.</li>
+          <li><b>Clinical studies</b> can use measures that used to require chart review. A co-authored SLEEP 2026 abstract compared narcolepsy subtypes across 13,122 veterans, using mean sleep latency, sleep-onset REM periods and Epworth scores extracted from notes by an NLP pipeline with over 90% accuracy (<a class="text" href="https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=164" target="_blank" rel="noopener">abstract</a>).</li>
+          <li><b>The clinical NLP community</b> gets peer-reviewed evidence: an <a class="text" href="https://ieeexplore.ieee.org/abstract/document/11500062/" target="_blank" rel="noopener">IEEE AIxSET 2025 paper</a>, two SLEEP 2026 late-breaking abstracts and a manuscript in preparation.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q5" data-sec>
+        <span class="q__n">05 Risks</span><h2 class="h2">What could go wrong?</h2>
+        <dl class="risks">
+          <div><dt class="hd">Risk</dt><dd class="hd">Mitigation</dd></div>
+          <div><dt>Invented values enter the dataset and look like findings</dt><dd>Upstream filtering, and hallucination tracked as its own error category</dd></div>
+          <div><dt>Missed values quietly bias cohorts</dt><dd>Omissions measured separately from other errors</dd></div>
+          <div><dt>Clinical text cannot leave VA systems</dt><dd>Open-weight models served on internal infrastructure</dd></div>
+          <div><dt>Fixed compute limits model size</dt><dd>4-bit quantization and pipeline parallelism, plus a size-versus-cost benchmark</dd></div>
+          <div><dt>A measure is extractable but not meaningful</dt><dd>Variables defined with clinicians, and protocols for reliability and validity</dd></div>
+        </dl>
+      </section>
+
+      <section class="q" id="q6" data-sec>
+        <span class="q__n">06 Resources</span><h2 class="h2">What does it take?</h2>
+        <p class="answer">No new hardware and no per-query fees: the cost is mainly people's time.</p>
+        <ul>
+          <li><b>Compute.</b> An existing 8-GPU cluster, made sufficient by 4-bit quantization.</li>
+          <li><b>Models.</b> Open-weight, so there are no licensing or per-token costs.</li>
+          <li><b>Expertise.</b> Clinician and researcher time to define variables and label 5,486 evaluation examples.</li>
+          <li><b>Data.</b> 1.25M+ records queried with SQL from the enterprise data warehouse.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q7" data-sec>
+        <span class="q__n">07 Timeline</span><h2 class="h2">How long does it take?</h2>
+        <table class="tl"><thead><tr><th>When</th><th>Milestone</th></tr></thead><tbody>
+          <tr><td>Jan 2025</td><td>Fellowship begins. Pipelines from the data warehouse to analysis-ready datasets.</td></tr>
+          <tr><td>2025</td><td>IEEE AIxSET 2025: ordering an LLM cascade to extract mean sleep latency from MSLT reports.</td></tr>
+          <tr><td>2026</td><td>SLEEP 2026: bag of words versus transformers for identifying MSLT reports, and a national cohort study of narcolepsy subtypes.</td></tr>
+          <tr><td>2026</td><td>Manuscript in preparation: LLM extraction of narcolepsy and hypersomnia metrics.</td></tr>
+          <tr><td>Ongoing</td><td>Model-size benchmarking, error analysis and stakeholder reporting.</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="q" id="q8" data-sec>
+        <span class="q__n">08 Evaluation</span><h2 class="h2">How do we know it is working?</h2>
+        <div class="exams">
+          <div><h3>Midterm checks</h3><ul><li>Error rates by type on the labeled set</li><li>Whether the upstream filter lowers hallucination downstream</li><li>Whether deployment fits the cluster's memory and time budget</li></ul></div>
+          <div><h3>Final checks</h3><ul><li>Agreement with clinician judgment (validity) and consistency across runs (reliability)</li><li>Accuracy against cost for each model size</li><li>Datasets used in peer-reviewed research</li></ul></div>
+        </div>
+        <p class="note" style="margin-top:28px">No patient data appears on this page.</p>
+      </section>
+    </article>
+  </div>
+
+  <nav class="wrap pager" aria-label="More projects"><a href="index.html#research"><small>Back</small><span>All research</span></a><a href="policy-map.html"><small>Next project</small><span>A live global policy dashboard</span></a></nav>
+</main>
+
+<footer id="foot"></footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

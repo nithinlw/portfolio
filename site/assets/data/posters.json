@@ -1,0 +1,53 @@
+{
+  "_help": "Add one object per poster or talk. Put images in site/assets/posters/ (e.g. sleep-2026.jpg) and PDFs next to them, then set image/pdf below. Leave image or pdf as an empty string until the file exists. Newest first. See README.md.",
+  "items": [
+    {
+      "id": "sleep-2026",
+      "type": "Late-breaking abstract",
+      "venue": "SLEEP 2026",
+      "year": 2026,
+      "title": "Comparing bag of words and transformer models to identify MSLT reports in VA clinical notes",
+      "authors": "Weerasinghe, N., Sharafkhaneh, S., Sharafkhaneh, S., Kaleekal, C., Bandi, A., Chandler, B., Razjouyan, J., & Maghsoudi, A.",
+      "summary": "Do simple word-count models or transformers do a better job of finding multiple sleep latency test reports in clinical notes?",
+      "image": "",
+      "pdf": "",
+      "link": "https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=58"
+    },
+    {
+      "id": "sleep-2026-nt1",
+      "type": "Late-breaking abstract",
+      "venue": "SLEEP 2026",
+      "year": 2026,
+      "title": "Narcolepsy type 1 exhibits a more severe clinical and mortality phenotype than other narcolepsy in a national veteran cohort",
+      "authors": "Azarian, M., Maghsoudi, A., Weerasinghe, N., Razjouyan, J., & Sharafkhaneh, A.",
+      "summary": "",
+      "image": "",
+      "pdf": "",
+      "link": "https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=164"
+    },
+    {
+      "id": "ats-2026",
+      "type": "Conference presentation",
+      "venue": "ATS 2026",
+      "year": 2026,
+      "title": "Diverging effects of hypoxic burden on cardiovascular risk and mortality in patients with obstructive sleep apnea syndrome: A retrospective study of Veterans Affairs database",
+      "authors": "Weerasinghe, N., Balachandran, S., Aminnia, S., Razjouyan, J., & Sharafkhaneh, A.",
+      "summary": "A clinical outcomes analysis in obstructive sleep apnea.",
+      "image": "",
+      "pdf": "",
+      "link": "https://academic.oup.com/ajrccm/article-abstract/212/Supplement_1/aamag162.6283/8685949"
+    },
+    {
+      "id": "aixset-2025",
+      "type": "Conference paper",
+      "venue": "IEEE AIxSET 2025",
+      "year": 2025,
+      "title": "Dynamic programming optimization of LLM cascade ordering for extracting sleep parameters from mean sleep latency tests",
+      "authors": "Maghsoudi, A., Weerasinghe, N., Sharafkhaneh, A., & Razjouyan, J.",
+      "summary": "A cascade that first identifies genuine MSLT notes, then extracts mean sleep latency with a quantized language model, ordered to limit hallucination and compute cost.",
+      "image": "",
+      "pdf": "",
+      "link": "https://ieeexplore.ieee.org/abstract/document/11500062/"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A live global policy dashboard | Nithin Weerasinghe</title>
+<meta name="description" content="Project brief: a live dashboard of 130+ government policies on minors' social media access across 100+ countries, built for the CHAT Lab at Singapore Management University.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<script>(function(){var r=document.documentElement,t=null;r.classList.add('js');try{t=localStorage.getItem('theme');}catch(e){}if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}r.setAttribute('data-theme',t);try{if(sessionStorage.getItem('pt'))r.classList.add('pt-cover');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="research">
+<a class="skip" href="#main">Skip to content</a>
+<header id="nav"></header>
+
+<main id="main">
+  <header class="case-head sky" id="top">
+    <div class="wrap">
+      <p class="label">Research project 02</p>
+      <h1 class="h1" data-split>A live global <em>policy dashboard</em></h1>
+      <p class="lede">A single, current view of how governments regulate minors' access to social media: where rules exist, how they spread, and how they differ.</p>
+      <div class="btn-row" id="liveRow" style="margin-top:26px" hidden><a class="btn btn--solid" id="liveBtn" href="#" target="_blank" rel="noopener">Open the live dashboard</a></div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Designed, built and deployed the dashboard</dd></div>
+        <div><dt>Setting</dt><dd>CHAT Lab, Singapore Management University, July 2026 to present</dd></div>
+        <div><dt>Methods</dt><dd>JavaScript, D3.js, Vercel</dd></div>
+        <div><dt>Outputs</dt><dd>A live dashboard for an upcoming preprint, and two companion dashboards</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap case">
+    <ol class="toc" data-rail>
+      <li><a href="#q1"><span>01</span>Objective</a></li><li><a href="#q2"><span>02</span>Current practice</a></li><li><a href="#q3"><span>03</span>Approach</a></li><li><a href="#q4"><span>04</span>Impact</a></li>
+      <li><a href="#q5"><span>05</span>Risks</a></li><li><a href="#q6"><span>06</span>Resources</a></li><li><a href="#q7"><span>07</span>Timeline</a></li><li><a href="#q8"><span>08</span>Evaluation</a></li>
+    </ol>
+    <article>
+      <section class="q" id="q1" data-sec>
+        <span class="q__n">01 Objective</span><h2 class="h2">What are we trying to do?</h2>
+        <p class="answer">Make the worldwide patchwork of laws on minors' social media access easy to explore, compare and keep up to date.</p>
+        <p>At the time of writing (October 2026), the dashboard tracks 131 government policies across 107 countries, drawn from the CHAT Lab's research dataset.</p>
+        <figure class="fig"><a href="https://social-media-policy-map.vercel.app/" target="_blank" rel="noopener"><img src="assets/img/dash-policy-map.jpg" alt="The global social media policy map: filters for status, mechanism, enforcement actor, age verification, age threshold, parental consent and stated rationale above a world map colored by the strongest policy mechanism, with a rollout slider and a policy panel" loading="lazy" width="1800" height="975"></a><figcaption>The live dashboard, captured October 2026. Select the image to open it.</figcaption></figure>
+      </section>
+
+      <section class="q" id="q2" data-sec>
+        <span class="q__n">02 Current practice</span><h2 class="h2">How is it done today, and what are the limits?</h2>
+        <ul>
+          <li><b>Static reports and tables</b> are authoritative on the day they are published and out of date soon after.</li>
+          <li><b>News coverage</b> follows individual laws, not the landscape, which makes cross-country comparison hard.</li>
+          <li><b>Single scores or rankings</b> are easy to map, but flatten very different legal instruments into one number.</li>
+          <li><b>Visualizations built from exported data</b> drift from the research dataset as it is corrected and extended.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q3" data-sec>
+        <span class="q__n">03 Approach</span><h2 class="h2">What is new, and why should it work?</h2>
+        <p class="answer">The dashboard is a live view over the team's dataset, organized around the three questions people actually bring to it.</p>
+        <ul>
+          <li><b>Live data.</b> The dashboard reads the team's dataset directly, so a correction made by a researcher appears everywhere at once and the paper and the visualization cannot drift apart.</li>
+          <li><b>Where:</b> multi-attribute filtering on a world map, so the map answers a specific question instead of showing one blended score.</li>
+          <li><b>When:</b> a rollout timeline that shows how policies spread over time.</li>
+          <li><b>How they differ:</b> side-by-side comparison of two countries, attribute by attribute.</li>
+          <li><b>A reusable framework.</b> The same live-updating design now carries two companion datasets: government policy on AI and mental health, and platforms' own youth-safety policies.</li>
+        </ul>
+        <div class="figs">
+          <figure class="fig"><a href="https://ai-mental-health-policy-map.vercel.app/" target="_blank" rel="noopener"><img src="assets/img/dash-ai-mh.jpg" alt="The global AI mental-health policy map: a world map showing which countries have policies on AI companions, AI therapy and mental-health safeguards" loading="lazy" width="1600" height="867"></a><figcaption>AI mental-health policy map: 44 policies, 23 countries (October 2026).</figcaption></figure>
+          <figure class="fig"><a href="https://social-media-platform-policy-tracker.vercel.app/" target="_blank" rel="noopener"><img src="assets/img/dash-platform.jpg" alt="The social media platform policy tracker: a rollout timeline of platform-side protections for minors from 2019 to 2026, above a color-coded policy grid" loading="lazy" width="1600" height="867"></a><figcaption>Platform policy tracker: 29 policies, 28 platforms, 23 companies (October 2026).</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="q" id="q4" data-sec>
+        <span class="q__n">04 Impact</span><h2 class="h2">Who cares, and what difference does it make?</h2>
+        <p class="answer">Anyone who needs to know what the rules are, and how they compare, can find out in one place, current to the dataset.</p>
+        <ul>
+          <li><b>The research team</b> gets a companion to the upcoming preprint that stays accurate after publication.</li>
+          <li><b>Researchers</b> in youth digital well-being get a shared reference for comparative work.</li>
+          <li><b>Policymakers and regulators</b> can see how other jurisdictions have approached the same problem.</li>
+          <li><b>Journalists, educators and parents</b> get a plain view of a fast-moving area.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q5" data-sec>
+        <span class="q__n">05 Risks</span><h2 class="h2">What could go wrong?</h2>
+        <dl class="risks">
+          <div><dt class="hd">Risk</dt><dd class="hd">Mitigation</dd></div>
+          <div><dt>Different legal instruments are coded inconsistently</dt><dd>A shared coding scheme, shown attribute by attribute rather than collapsed into one score</dd></div>
+          <div><dt>The view goes stale</dt><dd>A live connection to the research dataset instead of exported snapshots</dd></div>
+          <div><dt>Readers over-interpret a colored map</dt><dd>Filters that make each view answer one explicit question, and direct comparison for detail</dd></div>
+          <div><dt>Slow loading on modest devices</dt><dd>Compact map geometry and a static deployment</dd></div>
+        </dl>
+      </section>
+
+      <section class="q" id="q6" data-sec>
+        <span class="q__n">06 Resources</span><h2 class="h2">What does it take?</h2>
+        <p class="answer">One developer, the team's dataset and open-source tools, deployed as a static site.</p>
+        <ul>
+          <li><b>People.</b> Design and engineering by me, within a volunteer research role; data collection and coding by the research team.</li>
+          <li><b>Software.</b> Open-source libraries such as D3.js, so there are no licensing costs.</li>
+          <li><b>Hosting.</b> Static deployment on Vercel keeps running costs minimal.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q7" data-sec>
+        <span class="q__n">07 Timeline</span><h2 class="h2">How long does it take?</h2>
+        <table class="tl"><thead><tr><th>When</th><th>Milestone</th></tr></thead><tbody>
+          <tr><td>Jul 2026</td><td>Joined the CHAT Lab. Design and build of the dashboard.</td></tr>
+          <tr><td>2026</td><td>Deployed with live updates, rollout timeline, filtering and comparison.</td></tr>
+          <tr><td>2026</td><td>Companion dashboards for AI mental-health policy and platform youth-safety policies, in development.</td></tr>
+          <tr><td>Next</td><td>Public release alongside the team's preprint.</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="q" id="q8" data-sec>
+        <span class="q__n">08 Evaluation</span><h2 class="h2">How do we know it is working?</h2>
+        <div class="exams">
+          <div><h3>Midterm checks</h3><ul><li>Every record in the dataset appears in the dashboard and matches it</li><li>Researchers can answer where, when and how-do-they-differ questions without help</li></ul></div>
+          <div><h3>Final checks</h3><ul><li>The dashboard accompanies the published preprint</li><li>The framework carries over to the two companion datasets without a rewrite</li></ul></div>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <nav class="wrap pager" aria-label="More projects"><a href="va-llm.html"><small>Previous project</small><span>Clinical notes to research data</span></a><a href="covid-tweets.html"><small>Next project</small><span>Public discourse during COVID-19</span></a></nav>
+</main>
+
+<footer id="foot"></footer>
+<script>
+/* Set this to the deployed dashboard's URL to show an "Open the live dashboard" button. */
+window.LIVE_DASHBOARD_URL = 'https://social-media-policy-map.vercel.app/';
+if (window.LIVE_DASHBOARD_URL) { document.getElementById('liveRow').hidden = false; document.getElementById('liveBtn').href = window.LIVE_DASHBOARD_URL; }
+</script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

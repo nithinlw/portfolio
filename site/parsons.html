@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personalized practice for novice programmers | Nithin Weerasinghe</title>
+<meta name="description" content="Project brief: recommending Parsons problems that match how novice programmers are already approaching a task, at the University of Michigan.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<script>(function(){var r=document.documentElement,t=null;r.classList.add('js');try{t=localStorage.getItem('theme');}catch(e){}if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}r.setAttribute('data-theme',t);try{if(sessionStorage.getItem('pt'))r.classList.add('pt-cover');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="research">
+<a class="skip" href="#main">Skip to content</a>
+<header id="nav"></header>
+
+<main id="main">
+  <header class="case-head sky" id="top">
+    <div class="wrap">
+      <p class="label">Research project 04</p>
+      <h1 class="h1" data-split>Personalized practice for <em>novice programmers</em></h1>
+      <p class="lede">Recommending Parsons problems, where students reorder scrambled lines of a working program, that fit how each student is already approaching the task.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Research assistant: data analysis, tooling, study design</dd></div>
+        <div><dt>Setting</dt><dd>University of Michigan, October 2020 to August 2021. Co-mentored by Prof. Xu Wang and Prof. Barbara Ericson</dd></div>
+        <div><dt>Methods</dt><dd>Log analysis in Python, AST-based clustering, Rand and adjusted Rand index, think-aloud studies</dd></div>
+        <div><dt>Outputs</dt><dd>Clustering and analysis tooling, think-aloud study, contributions to a recommender tool</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap case">
+    <ol class="toc" data-rail>
+      <li><a href="#q1"><span>01</span>Objective</a></li><li><a href="#q2"><span>02</span>Current practice</a></li><li><a href="#q3"><span>03</span>Approach</a></li><li><a href="#q4"><span>04</span>Impact</a></li>
+      <li><a href="#q5"><span>05</span>Risks</a></li><li><a href="#q6"><span>06</span>Resources</a></li><li><a href="#q7"><span>07</span>Timeline</a></li><li><a href="#q8"><span>08</span>Evaluation</a></li>
+    </ol>
+    <article>
+      <section class="q" id="q1" data-sec>
+        <span class="q__n">01 Objective</span><h2 class="h2">What are we trying to do?</h2>
+        <p class="answer">Give a struggling novice programmer a practice problem that fits the way they are already trying to solve the task.</p>
+      </section>
+
+      <section class="q" id="q2" data-sec>
+        <span class="q__n">02 Current practice</span><h2 class="h2">How is it done today, and what are the limits?</h2>
+        <p>Parsons problems are more engaging than writing code from scratch, impose less cognitive load, and may be as effective for learning. They are usually one fixed puzzle per exercise, built from a single reference solution.</p>
+        <ul>
+          <li><b>One solution for everyone.</b> In student data, a problem that students handled well as a write-code exercise proved hard as a Parsons problem.</li>
+          <li><b>Approach mismatch.</b> Our hypothesis was that the Parsons solution used an approach most students would not have taken, so a student had to abandon their plan before they could start.</li>
+        </ul>
+        <figure class="fig"><img src="assets/img/parsons-distractors.png" alt="Two screenshots of a Parsons problem interface: distractor blocks paired with correct blocks on the left, and mixed in randomly on the right" loading="lazy" width="1000" height="556"><figcaption>Paired and unpaired distractors in a Parsons problem interface, from the project.</figcaption></figure>
+      </section>
+
+      <section class="q" id="q3" data-sec>
+        <span class="q__n">03 Approach</span><h2 class="h2">What is new, and why should it work?</h2>
+        <p class="answer">Recommend from many solutions, not one: group students' approaches, build Parsons problems from correct solutions in each group, and match a struggling student to the group their code resembles.</p>
+        <ul>
+          <li><b>Analysis.</b> I separated students who did the Parsons version first from those who wrote code first, compared their performance, tracked which distractors they chose, and hand-classified common mistakes and approaches.</li>
+          <li><b>Pipeline.</b> I wrote tooling that extracted every attempt from the log files, ran it against test cases, sorted correct and incorrect solutions, and prepared the code for clustering as abstract syntax trees.</li>
+          <li><b>Realistic distractors.</b> Wrong blocks were written to mirror the mistakes we saw in the data.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q4" data-sec>
+        <span class="q__n">04 Impact</span><h2 class="h2">Who cares, and what difference does it make?</h2>
+        <p class="answer">Students get help that builds on their own thinking, instead of a puzzle that asks them to think like someone else.</p>
+        <ul>
+          <li><b>Novice programmers</b> who get stuck on a problem.</li>
+          <li><b>Instructors</b> who want scalable, personalized practice for large courses.</li>
+          <li><b>Computing education researchers</b> studying how scaffolding should adapt to the learner.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q5" data-sec>
+        <span class="q__n">05 Risks</span><h2 class="h2">What could go wrong?</h2>
+        <dl class="risks">
+          <div><dt class="hd">Risk</dt><dd class="hd">Mitigation</dd></div>
+          <div><dt>Clusters depend on the order the data was processed in</dt><dd>Clustering repeated over 20 random orderings, with Rand and adjusted Rand index computed between every pair</dd></div>
+          <div><dt>Log data is noisy</dt><dd>Options to drop code that did not compile and to keep only each student's last incorrect attempt</dd></div>
+          <div><dt>Distractors confuse rather than teach</dt><dd>Distractors based on real, frequent mistakes</dd></div>
+          <div><dt>Small study samples</dt><dd>Think-aloud findings treated as preliminary</dd></div>
+        </dl>
+      </section>
+
+      <section class="q" id="q6" data-sec>
+        <span class="q__n">06 Resources</span><h2 class="h2">What does it take?</h2>
+        <p class="answer">Existing course data, open-source tools and a small research team.</p>
+        <ul>
+          <li><b>Data.</b> Logs of student submissions to Parsons and write-code problems.</li>
+          <li><b>Software.</b> Python and Jupyter notebooks.</li>
+          <li><b>People.</b> Two faculty mentors and student researchers, with IRB approval for the think-aloud studies.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q7" data-sec>
+        <span class="q__n">07 Timeline</span><h2 class="h2">How long does it take?</h2>
+        <table class="tl"><thead><tr><th>When</th><th>Milestone</th></tr></thead><tbody>
+          <tr><td>Oct 2020</td><td>Joined the project. Analysis of Parsons and write-code submissions.</td></tr>
+          <tr><td>Then</td><td>Extraction, testing and clustering pipeline, with reproducibility checks.</td></tr>
+          <tr><td>Then</td><td>Think-aloud studies over Zoom with problems generated from the clusters.</td></tr>
+          <tr><td>Aug 2021</td><td>Project concluded.</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="q" id="q8" data-sec>
+        <span class="q__n">08 Evaluation</span><h2 class="h2">How do we know it is working?</h2>
+        <div class="exams">
+          <div><h3>Midterm checks</h3><ul><li>Clear performance differences between groups that explain where students struggle</li><li>Clusters that agree across random orderings of the data</li></ul></div>
+          <div><h3>Final checks</h3><ul><li>Students in think-aloud studies find the recommended problems helpful. In preliminary discussion, they reported a real benefit to their learning.</li></ul></div>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <nav class="wrap pager" aria-label="More projects"><a href="covid-tweets.html"><small>Previous project</small><span>Public discourse during COVID-19</span></a><a href="other-work.html"><small>Next</small><span>Other work</span></a></nav>
+</main>
+
+<footer id="foot"></footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public discourse during COVID-19 | Nithin Weerasinghe</title>
+<meta name="description" content="Project brief: measuring how public conversation about COVID-19 shifted, using structural topic modeling on 10M+ tweets.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<script>(function(){var r=document.documentElement,t=null;r.classList.add('js');try{t=localStorage.getItem('theme');}catch(e){}if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}r.setAttribute('data-theme',t);try{if(sessionStorage.getItem('pt'))r.classList.add('pt-cover');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="research">
+<a class="skip" href="#main">Skip to content</a>
+<header id="nav"></header>
+
+<main id="main">
+  <header class="case-head sky" id="top">
+    <div class="wrap">
+      <p class="label">Research project 03</p>
+      <h1 class="h1" data-split>Public discourse during <em>COVID-19</em></h1>
+      <p class="lede">Measuring what people talked about, and how that changed, across more than ten million tweets.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Analyst: topic modeling, visualization and reporting</dd></div>
+        <div><dt>Setting</dt><dd>University of Wisconsin-Madison, October 2022 to December 2023</dd></div>
+        <div><dt>Methods</dt><dd>Structural topic modeling in R (stm, tidyverse, ggplot2)</dd></div>
+        <div><dt>Outputs</dt><dd>Visualizations and reports on shifts in public discourse</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap case">
+    <ol class="toc" data-rail>
+      <li><a href="#q1"><span>01</span>Objective</a></li><li><a href="#q2"><span>02</span>Current practice</a></li><li><a href="#q3"><span>03</span>Approach</a></li><li><a href="#q4"><span>04</span>Impact</a></li>
+      <li><a href="#q5"><span>05</span>Risks</a></li><li><a href="#q6"><span>06</span>Resources</a></li><li><a href="#q7"><span>07</span>Timeline</a></li><li><a href="#q8"><span>08</span>Evaluation</a></li>
+    </ol>
+    <article>
+      <section class="q" id="q1" data-sec>
+        <span class="q__n">01 Objective</span><h2 class="h2">What are we trying to do?</h2>
+        <p class="answer">Measure how the public conversation about COVID-19 changed as the pandemic unfolded.</p>
+        <p>I worked with a PhD cognitive science student at the University of Wisconsin-Madison who studies changes in behavior and attitudes. My part was the analysis of more than 10 million COVID-related tweets.</p>
+      </section>
+
+      <section class="q" id="q2" data-sec>
+        <span class="q__n">02 Current practice</span><h2 class="h2">How is it done today, and what are the limits?</h2>
+        <ul>
+          <li><b>Surveys</b> ask good questions, but they are slow, costly and fixed in advance, so they miss topics nobody thought to ask about.</li>
+          <li><b>Manual content analysis</b> is careful, but cannot keep up with millions of posts.</li>
+          <li><b>Keyword counts</b> scale, but miss themes that are expressed in many different words.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q3" data-sec>
+        <span class="q__n">03 Approach</span><h2 class="h2">What is new, and why should it work?</h2>
+        <p class="answer">Let the themes emerge from the text, and model how their prevalence changes over time within the model itself.</p>
+        <ul>
+          <li><b>Structural topic modeling.</b> Each tweet is modeled as a mixture of topics, and topic prevalence depends on covariates such as time, rather than time being added afterward.</li>
+          <li><b>Scale.</b> The full corpus of 10M+ tweets, not a sample small enough to code by hand.</li>
+          <li><b>Human interpretation.</b> Topics are named and checked by reading top words and example tweets, so the model's output is read as evidence, not taken as fact.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q4" data-sec>
+        <span class="q__n">04 Impact</span><h2 class="h2">Who cares, and what difference does it make?</h2>
+        <p class="answer">Researchers and communicators can see what the public was paying attention to, and when, at a scale surveys cannot reach.</p>
+        <ul>
+          <li><b>The collaborating researcher</b> gets measures of shifting discourse to relate to changes in attitudes and behavior.</li>
+          <li><b>Computational social scientists</b> get an example of time-aware topic modeling at this scale.</li>
+          <li><b>Public health communicators</b> can learn which concerns rose and faded over a crisis.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q5" data-sec>
+        <span class="q__n">05 Risks</span><h2 class="h2">What could go wrong?</h2>
+        <dl class="risks">
+          <div><dt class="hd">Risk</dt><dd class="hd">Mitigation</dd></div>
+          <div><dt>Twitter users are not the general public</dt><dd>Findings framed as evidence about platform discourse, with limits stated</dd></div>
+          <div><dt>Results depend on the number of topics chosen</dt><dd>Model diagnostics such as semantic coherence and exclusivity, combined with close reading</dd></div>
+          <div><dt>Topic labels are subjective</dt><dd>Labels checked against top words and representative tweets</dd></div>
+          <div><dt>Preprocessing choices shape the results</dt><dd>Choices documented and applied consistently across the corpus</dd></div>
+        </dl>
+      </section>
+
+      <section class="q" id="q6" data-sec>
+        <span class="q__n">06 Resources</span><h2 class="h2">What does it take?</h2>
+        <p class="answer">Open-source tools and analyst time.</p>
+        <ul>
+          <li><b>Data.</b> A corpus of 10M+ COVID-related tweets.</li>
+          <li><b>Software.</b> R and open-source packages (stm, tidyverse, ggplot2).</li>
+          <li><b>People.</b> Modeling, validation and reporting by me, in collaboration with a PhD researcher.</li>
+        </ul>
+      </section>
+
+      <section class="q" id="q7" data-sec>
+        <span class="q__n">07 Timeline</span><h2 class="h2">How long does it take?</h2>
+        <table class="tl"><thead><tr><th>When</th><th>Milestone</th></tr></thead><tbody>
+          <tr><td>Oct 2022</td><td>Project begins with a corpus of 10M+ COVID-related tweets.</td></tr>
+          <tr><td>Ongoing</td><td>Structural topic models with time as a covariate; model selection and validation.</td></tr>
+          <tr><td>Dec 2023</td><td>Visualizations and reports on how public discourse shifted.</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="q" id="q8" data-sec>
+        <span class="q__n">08 Evaluation</span><h2 class="h2">How do we know it is working?</h2>
+        <div class="exams">
+          <div><h3>Midterm checks</h3><ul><li>Topics that are coherent, distinct and stable across reasonable choices of the number of topics</li><li>Labels that hold up against example tweets</li></ul></div>
+          <div><h3>Final checks</h3><ul><li>Reports that show how topic prevalence changed over time</li><li>Results the collaborating researcher can use in their own analysis</li></ul></div>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <nav class="wrap pager" aria-label="More projects"><a href="policy-map.html"><small>Previous project</small><span>A live global policy dashboard</span></a><a href="parsons.html"><small>Next project</small><span>Personalized practice for novice programmers</span></a></nav>
+</main>
+
+<footer id="foot"></footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

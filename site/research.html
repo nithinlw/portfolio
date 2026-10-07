@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV | Nithin Weerasinghe</title>
+<meta name="description" content="Curriculum vitae of Nithin Weerasinghe: research experience, publications, teaching, education and methods in human-AI interaction, computational social science, digital mental health, NLP and HCI.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&display=swap" rel="stylesheet">
+<script>(function(){var r=document.documentElement,t=null;r.classList.add('js');try{t=localStorage.getItem('theme');}catch(e){}if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}r.setAttribute('data-theme',t);try{if(sessionStorage.getItem('pt'))r.classList.add('pt-cover');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="cv">
+<a class="skip" href="#main">Skip to content</a>
+<header id="nav"></header>
+
+<main id="main">
+  <header class="page-head sky">
+    <div class="wrap page-head__grid">
+      <div><p class="label">Curriculum vitae</p><h1 class="h1" data-split>Research and <em>CV</em></h1></div>
+      <div>
+        <p class="lede">I study how people and AI systems come to understand one another, and what that means for well-being. Across clinical text, public discourse and policy, I keep returning to measurement: what a computational measure claims to capture, and how we would know it does.</p>
+        <div class="btn-row"><a class="btn btn--solid" href="assets/files/Nithin_Weerasinghe_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a><a class="btn" href="https://scholar.google.com/citations?user=Gt6wancAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a class="btn" href="posters.html">Posters</a></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap cv sec">
+    <nav class="rail" aria-label="On this page" data-rail>
+      <a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#teaching">Teaching</a><a href="#education">Education</a><a href="#skills">Methods and tools</a><a href="#leadership">Leadership</a>
+    </nav>
+
+    <div>
+      <section id="experience" data-sec>
+        <h2 class="h2">Research experience</h2>
+        <article class="entry">
+          <p class="entry__date">Jul 2026 to present</p>
+          <div><h3 class="h3">Research Volunteer, CHAT Lab</h3><p class="entry__org">Singapore Management University</p>
+            <ul>
+              <li>Designed, built and deployed a <a href="https://social-media-policy-map.vercel.app/" target="_blank" rel="noopener">global social media policy map</a> (JavaScript, D3.js, Vercel) tracking 130+ government policies on minors' access across 100+ countries, for an upcoming preprint. It updates live from the team's dataset and offers a rollout timeline, multi-attribute filtering and side-by-side comparison. <a href="policy-map.html">Project brief</a></li>
+              <li>Developing companion dashboards for <a href="https://ai-mental-health-policy-map.vercel.app/" target="_blank" rel="noopener">AI mental-health policy</a> and for <a href="https://social-media-platform-policy-tracker.vercel.app/" target="_blank" rel="noopener">platforms' own youth-safety policies</a>, extending the same live-updating framework to new datasets.</li>
+              <li>Conducting a systematic umbrella review that synthesizes evidence on mental health chatbot interventions.</li>
+            </ul></div>
+        </article>
+        <article class="entry">
+          <p class="entry__date">Jan 2025 to present</p>
+          <div><h3 class="h3">Data Science Research Fellow</h3><p class="entry__org">U.S. Department of Veterans Affairs</p>
+            <ul>
+              <li>Designed and built end-to-end Python and SQL pipelines that turn 1.25M+ unstructured clinical records into structured, analysis-ready research datasets, with automated validation and post-processing. <a href="va-llm.html">Project brief</a></li>
+              <li>Worked with clinicians and interdisciplinary researchers to define research variables and validate computational measures, and designed evaluation protocols that assess their reliability and validity.</li>
+              <li>Deployed open-weight large language models of two sizes across an 8-GPU cluster with vLLM, 4-bit quantization and pipeline parallelism, making large-model deployment feasible on fixed hardware.</li>
+              <li>Fine-tuned a transformer classifier as an upstream filter that reduced downstream hallucination. Built evaluation tooling that categorizes hallucination, omission and mismatch errors against 5,486 labeled examples, and benchmarked model sizes on accuracy and cost for leadership.</li>
+              <li>Maintained a SQL database drawing on an enterprise data warehouse for program reporting. Built R dashboards for the VA Office of Rural Health telehealth evaluation and Streamlit dashboards for stakeholders.</li>
+            </ul></div>
+        </article>
+        <article class="entry">
+          <p class="entry__date">Oct 2022 to Dec 2023</p>
+          <div><h3 class="h3">COVID Twitter Research</h3><p class="entry__org">University of Wisconsin-Madison</p>
+            <ul><li>Analyzed 10M+ COVID-related tweets with structural topic modeling in R, producing visualizations and reports on how public discourse shifted over the course of the pandemic. <a href="covid-tweets.html">Project brief</a></li></ul></div>
+        </article>
+        <article class="entry">
+          <p class="entry__date">Oct 2020 to Aug 2021</p>
+          <div><h3 class="h3">Parsons Problem Research</h3><p class="entry__org">University of Michigan. Co-mentored by Prof. Xu Wang and Prof. Barbara Ericson</p>
+            <ul>
+              <li>Helped develop and test a tool that recommended personalized exercises based on students' in-progress work.</li>
+              <li>Designed and conducted think-aloud studies to understand how students solve problems.</li>
+              <li>Extracted and analyzed CSV log data to find patterns and measure the performance of student code. <a href="parsons.html">Project brief</a></li>
+            </ul></div>
+        </article>
+        <article class="entry">
+          <p class="entry__date">May to Aug 2022</p>
+          <div><h3 class="h3">Natural Language Modeling Intern</h3><p class="entry__org">Licens.io</p>
+            <ul><li>Built sentiment classifiers for GitHub issue comments using spaCy transformers, reaching state-of-the-art accuracy, and curated a labeled dataset of comments from a random sample of R projects.</li></ul></div>
+        </article>
+        <article class="entry">
+          <p class="entry__date">Jun to Aug 2021</p>
+          <div><h3 class="h3">Cloud Software Engineering Intern</h3><p class="entry__org">American Century Investments</p>
+            <ul><li>Engineered AWS Lambda functions for data replication monitoring and automated alerting.</li></ul></div>
+        </article>
+      </section>
+
+      <section id="publications" data-sec>
+        <h2 class="h2">Publications, manuscripts and presentations</h2>
+        <ol class="pubs">
+          <li><span class="venue">Manuscript in preparation, 2026</span><p class="cite"><b>Weerasinghe, N.</b>, Razjouyan, J., Sharafkhaneh, A., &amp; Maghsoudi, A. (2026). Automated extraction of narcolepsy and hypersomnia diagnostic metrics from clinical notes using large language models. Manuscript in preparation.</p></li>
+          <li><span class="venue">SLEEP 2026, late-breaking abstract 1462</span><p class="cite"><b>Weerasinghe, N.</b>, Sharafkhaneh, S., Sharafkhaneh, S., Kaleekal, C., Bandi, A., Chandler, B., Razjouyan, J., &amp; Maghsoudi, A. (2026). Comparing bag of words and transformer models to identify MSLT reports in VA clinical notes. <i>SLEEP 2026</i>, late-breaking abstract. <a class="text" href="https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=58" target="_blank" rel="noopener">Abstract (PDF)</a></p></li>
+          <li><span class="venue">SLEEP 2026, late-breaking abstract 1546</span><p class="cite">Azarian, M., Maghsoudi, A., <b>Weerasinghe, N.</b>, Razjouyan, J., &amp; Sharafkhaneh, A. (2026). Narcolepsy type 1 exhibits a more severe clinical and mortality phenotype than other narcolepsy in a national veteran cohort. <i>SLEEP 2026</i>, late-breaking abstract. <a class="text" href="https://www.sleepmeeting.org/wp-content/uploads/2026/05/SLEEP-2026-Late-Breaking-Abstracts.pdf#page=164" target="_blank" rel="noopener">Abstract (PDF)</a></p></li>
+          <li><span class="venue">ATS 2026</span><p class="cite"><b>Weerasinghe, N.</b>, Balachandran, S., Aminnia, S., Razjouyan, J., &amp; Sharafkhaneh, A. (2026). Diverging effects of hypoxic burden on cardiovascular risk and mortality in patients with obstructive sleep apnea syndrome: A retrospective study of Veterans Affairs database. <i>American Journal of Respiratory and Critical Care Medicine, 212</i>(Supplement 1). <a class="text" href="https://academic.oup.com/ajrccm/article-abstract/212/Supplement_1/aamag162.6283/8685949" target="_blank" rel="noopener">Abstract</a></p></li>
+          <li><span class="venue">IEEE AIxSET 2025</span><p class="cite">Maghsoudi, A., <b>Weerasinghe, N.</b>, Sharafkhaneh, A., &amp; Razjouyan, J. (2025). Dynamic programming optimization of LLM cascade ordering for extracting sleep parameters from mean sleep latency tests. In <i>2025 Conference on AI, Science, Engineering, and Technology (AIxSET)</i> (pp. 148-151). IEEE. <a class="text" href="https://ieeexplore.ieee.org/abstract/document/11500062/" target="_blank" rel="noopener">IEEE Xplore</a></p></li>
+          </ol>
+        <p class="note" style="margin-top:22px">In progress: an umbrella review of mental health chatbot interventions, and a preprint accompanying the policy dashboard.</p>
+      </section>
+
+      <section id="teaching" data-sec>
+        <h2 class="h2">Teaching</h2>
+        <article class="entry"><p class="entry__date">Aug 2022 to May 2024</p>
+          <div><h3 class="h3">Graduate Teaching Assistant</h3><p class="entry__org">University of Wisconsin-Madison, Computer Sciences</p>
+            <ul><li>Supported hundreds of students in Building User Interfaces and Human-Computer Interaction through office hours, forum support, course design, exam and homework development, grading and feedback.</li></ul></div></article>
+      </section>
+
+      <section id="education" data-sec>
+        <h2 class="h2">Education</h2>
+        <article class="entry"><p class="entry__date">May 2024</p>
+          <div><h3 class="h3">M.S. Computer Sciences</h3><p class="entry__org">University of Wisconsin-Madison. GPA 3.66/4.00</p><p class="muted">Human-Computer Interaction, Data Visualization, Modeling User Interaction, Big Data Systems, Algorithms, Communication Theory and Research, Teaching STEM</p></div></article>
+        <article class="entry"><p class="entry__date">Dec 2021</p>
+          <div><h3 class="h3">B.S.E. Computer Science, B.S. Cognitive Science, Minor in Complex Systems</h3><p class="entry__org">University of Michigan. GPA 3.54/4.00</p><p class="muted">Machine Learning, Artificial Intelligence, Learning and Memory, Computational Modeling of Cognition, Software Engineering, Network Science</p></div></article>
+      </section>
+
+      <section id="skills" data-sec>
+        <h2 class="h2">Methods and tools</h2>
+        <div class="skills">
+          <div><h3>Research methods</h3><p>Survey design, human-subjects research, think-aloud studies, qualitative coding, evidence synthesis, experimental design, systematic review methodology</p></div>
+          <div><h3>Computational</h3><p>Python (pandas, scikit-learn, PyTorch, spaCy, transformers), R (tidyverse, stm, ggplot2), SQL, JavaScript (D3.js), Docker</p></div>
+          <div><h3>NLP and machine learning</h3><p>Natural language processing, machine learning, computational text analysis, structural topic modeling, statistical analysis, information extraction</p></div>
+          <div><h3>LLM tooling</h3><p>vLLM, AWQ quantization, LangChain, LlamaIndex, n8n, AI-assisted coding tools</p></div>
+          <div><h3>Software</h3><p>Qualtrics, Git, LaTeX, Jupyter, Tableau, Streamlit</p></div>
+        </div>
+      </section>
+
+      <section id="leadership" data-sec>
+        <h2 class="h2">Leadership and service</h2>
+        <article class="entry"><p class="entry__date">Sep 2023 to May 2024</p><div><h3 class="h3">Officer, Student Chapter of ACM</h3><p class="entry__org">University of Wisconsin-Madison</p><ul><li>Planned and organized CS graduate community and department events, including prospective student visits.</li></ul></div></article>
+        <article class="entry"><p class="entry__date">Sep 2022 to May 2024</p><div><h3 class="h3">Associate Director of Marketing and Social Media</h3><p class="entry__org">Wisconsin Union Directorate, Distinguished Lecture Series</p><ul><li>Wrote a weekly newsletter for about 2,000 subscribers, managed social media, designed graphics and coordinated outreach for lectures drawing audiences of over 1,000.</li></ul></div></article>
+        <article class="entry"><p class="entry__date">Sep 2020 to Dec 2021</p><div><h3 class="h3">Vice President, Cognitive Science Community</h3><p class="entry__org">University of Michigan</p><ul><li>Revamped the website and graphics, managed the leadership team and led colloquium planning.</li></ul></div></article>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer id="foot"></footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

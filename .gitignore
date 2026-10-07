@@ -1,0 +1,9 @@
+# reference material and local tooling, not part of the site
+old-portfolio/
+archive/
+.claude/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.vercel
