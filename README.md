@@ -13,7 +13,6 @@ A hand-built static site: plain HTML, CSS and JavaScript, no build step. Everyth
 | `research.html` | Full CV with a sticky section rail |
 | `posters.html` | Poster wall, rendered from `assets/data/posters.json` |
 | `other-work.html` | A Grimoire's Tale (itch.io embed), digit recognition, carillon arrangement |
-| `about.html` | Bio, timeline, interests, motto, essay |
 
 All styling is in `assets/css/site.css` and all behavior is in `assets/js/site.js`. The nav and footer are injected by `site.js`, which reads `<body data-page="...">` to mark the current page.
 
@@ -50,4 +49,5 @@ Import `nithinlw/portfolio` in Vercel and choose the "Other" framework preset. `
 - `site/`: the website
 - `old-portfolio/`: the previous site, kept for reference
 - `archive/img/`: images no longer used on the site (graphic design work, extra game screenshots), kept out of the deploy
+- `archive/about.html`: the About page, removed from the site for now. To restore it, move it back into `site/`, move `brain.jpg` and `ad-tryharder.jpg` from `archive/img/` back into `site/assets/img/`, and add `['about', 'About', 'about.html']` to `NAV` in `site.js`
 - `tools/prep_images.py`: resizes and compresses source images into `site/assets/img/`

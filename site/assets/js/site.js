@@ -9,7 +9,7 @@
   var sess = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }, del: function (k) { try { sessionStorage.removeItem(k); } catch (e) {} } };
 
   /* ---------- nav ---------- */
-  var NAV = [['research', 'Research', 'index.html#research'], ['cv', 'CV', 'research.html'], ['posters', 'Posters', 'posters.html'], ['work', 'Other work', 'other-work.html'], ['about', 'About', 'about.html']];
+  var NAV = [['research', 'Research', 'index.html#research'], ['cv', 'CV', 'research.html'], ['posters', 'Posters', 'posters.html'], ['work', 'Other work', 'other-work.html']];
   var nav = d.getElementById('nav');
   if (nav) {
     nav.className = 'nav';
